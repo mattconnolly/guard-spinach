@@ -3,6 +3,10 @@ require 'guard/guard'
 
 module Guard
   class Spinach < Guard
+    def start
+      run_all if @options[:all_on_start]
+    end
+
     def run_all
       Runner.new([]).run
     end
