@@ -27,4 +27,22 @@ describe Guard::Spinach do
       subject.run_all
     end
   end
+  describe "#start" do
+    describe "with defaults" do
+      it "does not fire run on a runner" do
+        Guard::Spinach::Runner.any_instance.expects(:system).never
+        subject.start
+      end
+    end
+    describe "with all_on_start => true" do
+      let(:options) do
+        { :all_on_start => true }
+      end
+      it "fires run on a runner" do
+        Guard::Spinach::Runner.any_instance.expects(:system).with(
+          "spinach ")
+        subject.start
+      end
+    end
+  end
 end
