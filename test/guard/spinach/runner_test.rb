@@ -21,14 +21,12 @@ describe Guard::Spinach::Runner do
   describe "#run" do
     it "runs spinach on all the features in the list" do
       subject.expects(:system).with("spinach fake/path.feature foo/bar.feature")
-      capture_output{ subject.run }
+      subject.run
     end
     it "outputs a message" do
       subject.stubs(:system)
-      output = capture_output{ subject.run }
-      output.must_include "Running"
-      output.must_include paths[0]
-      output.must_include paths[1]
+      Guard::UI.expects(:info).with("Running fake/path.feature foo/bar.feature", :reset => true)
+      subject.run
     end
   end
 end

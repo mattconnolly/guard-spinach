@@ -6,15 +6,6 @@ require 'minitest/spec'
 require 'minitest/autorun'
 require 'mocha/integration/mini_test'
 
-require_relative '../lib/guard/spinach'
+ENV['GUARD_ENV'] = 'test'
 
-def capture_output
-  output = StringIO.new
-  $stdout = output
-  $stderr = output
-  yield
-  return output.string
-ensure
-  $stdout = STDOUT
-  $stdout = STDERR
-end
+require_relative '../lib/guard/spinach'

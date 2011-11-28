@@ -8,7 +8,8 @@ module Guard
       end
 
       def run
-        puts "Running #{paths.join(" ")}\n"
+        message = "Running #{paths.empty? ? "all Spinach features" : paths.join(" ")}"
+        UI.info message, :reset => true
         system(run_command)
       end
 
