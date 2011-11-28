@@ -4,6 +4,7 @@ Bundler.require :default, :test
 require 'mocha'
 require 'minitest/spec'
 require 'minitest/autorun'
+require 'mocha/integration/mini_test'
 
 require_relative '../lib/guard/spinach'
 
