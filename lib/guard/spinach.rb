@@ -11,7 +11,7 @@ module Guard
       Runner.new([]).run
     end
 
-    def run_on_change(paths)
+    def run_on_changes(paths)
       Runner.new(paths).run
     end
   end
