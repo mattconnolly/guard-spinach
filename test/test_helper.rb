@@ -1,10 +1,9 @@
 require 'bundler/setup'
 Bundler.require :default, :test
 
-require 'mocha'
 require 'minitest/spec'
 require 'minitest/autorun'
-require 'mocha/integration/mini_test'
+require 'mocha/setup'
 
 ENV['GUARD_ENV'] = 'test'
 
